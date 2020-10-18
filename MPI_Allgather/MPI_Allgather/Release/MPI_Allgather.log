@@ -1,0 +1,2 @@
+﻿  MPI_Allgather.cpp
+D:\Программы\Параллельное программирование\MPI_Allgather\MPI_Allgather\MPI_Allgather.cpp(1,10): fatal error C1083: Не удается открыть файл включение: mpi.h: No such file or directory,
