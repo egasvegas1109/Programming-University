@@ -33,31 +33,40 @@ void one() //Однопроцессорный(последовательный)
 
 	do
 	{
-		for (int i = 0; i < n; i++)
+	#pragma omp parallel //Объявление параллельной секции
 		{
-			r[0][i] = tau * func(y, time, i);//Вычисление 1 коэфф.
-			yy[i] = y[i] + 0.5 * r[0][i];//Подготовка промежут. знач. для 2 коэфф
-		}
-		for (int i = 0; i < n; i++)
-		{
-			r[1][i] = tau * func(yy, time + tau * 0.5, i);//Вычисление 2 коэфф.
-		}
-		for (int i = 0; i < n; i++)
-		{
-			yy[i] = y[i] + 0.5 * r[1][i];//Подготовка промежут. знач. для 3 коэфф
-		}
-		for (int i = 0; i < n; i++)
-		{
-			r[2][i] = tau * func(yy, time + tau * 0.5, i);//Вычисление 3 коэфф.
-		}
-		for (int i = 0; i < n; i++)
-		{
-			yy[i] = y[i] + r[2][i];//Подготовка промежут. знач. для 4 коэфф
-		}
-		for (int i = 0; i < n; i++)
-		{
-			r[3][i] = tau * func(yy, time + tau, i);//Вычисление 4 коэфф.
-			y[i] += (r[0][i] + 2.0 * r[1][i] + 2.0 * r[2][i] + r[3][i]) / 6.0;//Конечные знач.
+		#pragma omp for schedule(static, 1) 
+			for (int i = 0; i < n; i++)
+			{
+				r[0][i] = tau * func(y, time, i);//Вычисление 1 коэфф.
+				yy[i] = y[i] + 0.5 * r[0][i];//Подготовка промежут. знач. для 2 коэфф
+			}
+		#pragma omp for schedule(static, 1) 
+			for (int i = 0; i < n; i++)
+			{
+				r[1][i] = tau * func(yy, time + tau * 0.5, i);//Вычисление 2 коэфф.
+			}
+		#pragma omp for schedule(static, 1) 
+			for (int i = 0; i < n; i++)
+			{
+				yy[i] = y[i] + 0.5 * r[1][i];//Подготовка промежут. знач. для 3 коэфф
+			}
+		#pragma omp for schedule(static, 1) 
+			for (int i = 0; i < n; i++)
+			{
+				r[2][i] = tau * func(yy, time + tau * 0.5, i);//Вычисление 3 коэфф.
+			}
+		#pragma omp for schedule(static, 1) 
+			for (int i = 0; i < n; i++)
+			{
+				yy[i] = y[i] + r[2][i];//Подготовка промежут. знач. для 4 коэфф
+			}
+		#pragma omp for schedule(static, 1) 
+			for (int i = 0; i < n; i++)
+			{
+				r[3][i] = tau * func(yy, time + tau, i);//Вычисление 4 коэфф.
+				y[i] += (r[0][i] + 2.0 * r[1][i] + 2.0 * r[2][i] + r[3][i]) / 6.0;//Конечные знач.
+			}
 		}
 		time += tau;
 
