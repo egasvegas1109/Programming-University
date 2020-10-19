@@ -2,6 +2,9 @@
 #include <omp.h>
 #include <math.h>
 #include <windows.h>
+#include <iostream>
+#include <ctime>
+using namespace std;
 double func(double x[], double t, int rank) //Вычисление правых частей системы уравнений
 {
 	double w;
@@ -24,7 +27,7 @@ void one() //Однопроцессорный(последовательный)
 {
 	const int n = 2;//Число неизвестных
 	const int m = 4;//Степень метода Рунге-Кутта
-	double y[n] = { 3.0, 1.0 }, yy[n] = { 0.0 }, time = 0.0, tmax = 0.1, tau = 0.01, r[m][n];
+	double y[n] = { 1.0, 3.0 }, yy[n] = { 0.0 }, time = 0.0, tmax = 0.1, tau = 0.01, r[m][n];
 	/*y – начальные значения, yy – промежуточные значения, time – текущее время, tmax – максимальное время, tau – шаг, r – значения коэффициентов*/
 	printf("ONE:\n   time = %f\n", time);
 
@@ -74,6 +77,7 @@ void one() //Однопроцессорный(последовательный)
 		printf(" x0 = %f\n", y[0]);
 		printf(" y0 = %f\n", y[1]);
 	} while (time <= tmax);
+	cout << "\ntime_end = " << clock() / 1000.0 << endl; // замеряем время
 }
 int main()
 {

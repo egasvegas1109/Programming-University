@@ -24,7 +24,7 @@ int main(int arc, char** argv) {
 	int i, j;
 	int size, rank, msgtag = 1;
 	const int m = 4, n = 2;
-	double y[n] = { 3.0, 1.0 }, yy[n] = { 0.0 }, time = 0.0, tmax = 0.1, tau = 1*exp(-3), r[m], ff = 0.0;
+	double y[n] = { 1.0, 3.0 }, yy[n] = { 0.0 }, time = 0.0, tmax = 0.1, tau = 0.01, r[m], ff = 0.0;
 
 	//Шапочка
 	if (MPI_Init(&arc, &argv) != MPI_SUCCESS) return 1;
