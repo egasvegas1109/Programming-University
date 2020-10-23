@@ -1,6 +1,6 @@
 ﻿#include <mpi.h>
 #include <stdio.h>
-
+#include <fstream>
 
 template < typename ElementTypeA, typename ElementTypeB>
 int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementTypeB* rbuf, int rcount, MPI_Datatype rtype, int root, MPI_Comm comm)
@@ -15,7 +15,7 @@ int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementType
 	MPI_Comm_rank(comm, &rank);
 	int i;
 	int j;
-	//mpiexec -n 4 ConsoleApplication2.exe
+	//mpiexec -n 4 MPI_Allgather.exe
 	for (i = 0; i < rank; i++)//отправка всем процессам
 	{
 		if (rank != root) MPI_Send(sbuf, scount, MPI_INT, i, tag, comm);
@@ -32,6 +32,7 @@ int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementType
 
 int main(int argc, char** argv)
 {
+	using namespace std;
 	int size, rank;
 	//Шапочка
 	{
@@ -48,9 +49,8 @@ int main(int argc, char** argv)
 		}
 	}
 
-	printf("I'm proc #: %d\n", rank);
+	
 	MPI_Barrier(MPI_COMM_WORLD);
-
 #define n 30//размер массива
 #define maxiter 100//кол-во итераций
 #define save 0 //номер процесса, на котором сохраняем результат
@@ -63,7 +63,17 @@ int main(int argc, char** argv)
 
 	for (int i = 0; i < n * size; i++)
 		rbuf[i] = -1;//"очищаем"
+	 int i;
+	ofstream fout;
+	fout.open("file.txt");
+	for (i = 0; i < size; i++)
+	{
+		fout << rank;
+	}
+	
+	fout.close();
 
+	printf("I'm proc #: %d\n", rank);
 	double tn, tk, dt;
 
 	tn = MPI_Wtime();
