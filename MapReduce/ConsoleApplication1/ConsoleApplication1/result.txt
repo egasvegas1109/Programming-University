@@ -1,1 +1,1 @@
-MAX=14 MIN=7
+MAX=15 MIN=0

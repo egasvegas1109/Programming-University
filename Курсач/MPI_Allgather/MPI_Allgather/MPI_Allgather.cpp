@@ -3,47 +3,36 @@
 
 
 template < typename ElementTypeA, typename ElementTypeB>
-int MPI_MyGather(ElementTypeA* sbuf, int scount, ElementTypeB* rbuf, int rcount, int root, MPI_Comm comm)
+int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementTypeB* rbuf, int rcount, MPI_Datatype rtype, int root, MPI_Comm comm)
 {
 	const int tag = 35;
 	int rank;
 	int size;
 
 	MPI_Status status;
-	ElementTypeA* barr = new ElementTypeA[scount];
 
 	MPI_Comm_size(comm, &size);
 	MPI_Comm_rank(comm, &rank);
-
-
-	if (rank != root) MPI_Send(sbuf, scount, MPI_INT, root, tag, comm);
-
-	if (rank == root)
+	int i;
+	int j;
+	//mpiexec -n 4 ConsoleApplication2.exe
+	for (i = 0; i < rank; i++)//отправка всем процессам
 	{
-		for (int j = root, k = 0; k < rcount; k++)
-		{
-
-			*(rbuf + j * rcount + k) = (ElementTypeB) * (sbuf + k);
-		}
-		for (int i = 0; i < size - 1; i++)
-		{
-			MPI_Recv(barr, rcount, MPI_INT, MPI_ANY_SOURCE, tag, comm, &status);
-			for (int j = status.MPI_SOURCE, k = 0; k < rcount; k++)
-				*(rbuf + j * rcount + k) = (ElementTypeB) * (barr + k);
-
-		}
+		if (rank != root) MPI_Send(sbuf, scount, MPI_INT, i, tag, comm);
 	}
 
+	for (j = 0; j < rank; j++)//принимаем от всех процессов
+	{
+		if (rank == root) MPI_Recv(rbuf, rcount, MPI_INT, j, tag, comm, &status);
+	}
 	MPI_Barrier(comm);
 
-	delete[] barr;
 	return 0;
 }
 
 int main(int argc, char** argv)
 {
 	int size, rank;
-	MPI_Status status;
 	//Шапочка
 	{
 		if (MPI_Init(&argc, &argv) != MPI_SUCCESS) return 1;
@@ -61,58 +50,52 @@ int main(int argc, char** argv)
 
 	printf("I'm proc #: %d\n", rank);
 	MPI_Barrier(MPI_COMM_WORLD);
-#define n 5
-#define maxiter 100
-#define save 0
-	int sbuf[n];
-	int* rbuf = new int[size * n];
 
+#define n 30//размер массива
+#define maxiter 100//кол-во итераций
+#define save 0 //номер процесса, на котором сохраняем результат
+
+	double sbuf[n];//создаём массив 
+	double* rbuf = new double[size * n];//создаём массив №2
+	//создание массивов для передачи и приёма
 	for (int i = 0; i < n; i++)
-		sbuf[i] = rank - 10;
+		sbuf[i] = rank;
+
 	for (int i = 0; i < n * size; i++)
-		rbuf[i] = -1;
+		rbuf[i] = -1;//"очищаем"
 
 	double tn, tk, dt;
 
 	tn = MPI_Wtime();
-	for (int t = 0; t < maxiter; t++)
-	{
-		MPI_MyGather(sbuf, n, rbuf, n, save, MPI_COMM_WORLD);
-	}
+
+	MPI_MyGather(sbuf, n, MPI_DOUBLE, rbuf, n, MPI_DOUBLE, save, MPI_COMM_WORLD);
+
 	tk = MPI_Wtime();
 	dt = tk - tn;
 
 	if (rank == save)
 	{
-		printf("MyGather time = %f\n", dt);
-		for (int i = 0; i < size * n; i++)
-			printf("rbuf[%d] = %d\n", i, rbuf[i]);
-		printf("\n\n\n\n", dt);
+		printf("MyAllgather time = %f\n", dt);
 	}
 
 
 	for (int i = 0; i < n * size; i++)
-		rbuf[i] = -1;
+		rbuf[i] = -1;//"очищаем" массив
 
-	/*if (rank == save)
-	{
-		for (int i = 0; i < size * n; i++)
-			printf("rbuf[%d] = %d\n", i, rbuf[i]);
-	}*/
+
+	//обычный allgather
+	MPI_Barrier(MPI_COMM_WORLD);
 
 	tn = MPI_Wtime();
-	for (int t = 0; t < maxiter; t++)
-	{
-		MPI_Allgather(sbuf, n, MPI_INT, rbuf, n, MPI_INT, MPI_COMM_WORLD);
-	}
+
+	MPI_Allgather(sbuf, n, MPI_DOUBLE, rbuf, n, MPI_DOUBLE, MPI_COMM_WORLD);
+
 	tk = MPI_Wtime();
 	dt = tk - tn;
 
 	if (rank == save)
 	{
-		printf("Gather time = %f\n", dt);
-		for (int i = 0; i < size * n; i++)
-			printf("rbuf[%d] = %d\n", i, rbuf[i]);
+		printf("Allgather time = %f\n", dt);
 	}
 
 	delete[] rbuf;

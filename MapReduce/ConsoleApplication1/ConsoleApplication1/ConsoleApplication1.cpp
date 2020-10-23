@@ -4,7 +4,7 @@
 #include "mpi.h"
 #include <ctime>
 
-#define buf_size 30 //максимальное кол-во элементов в массиве
+#define buf_size 500 //максимальное кол-во элементов в массиве
 #define comm MPI_COMM_WORLD
 
 
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 	{
 		FILE* f;
 		fopen_s(&f, "number.txt", "w");//файл с макс
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 400; i++)
 		{
 
 			fprintf_s(f, "%d ", rand() % 16);
