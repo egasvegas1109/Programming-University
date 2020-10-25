@@ -1,0 +1,5 @@
+﻿  ConsoleApplication1.cpp
+D:\Программы\Параллельное программирование\Душ\MPI\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(15,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Программы\Параллельное программирование\Душ\MPI\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(17,9): warning C4101: j: неиспользованная локальная переменная
+D:\Программы\Параллельное программирование\Душ\MPI\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(58,10): warning C4101: qwe: неиспользованная локальная переменная
+  ConsoleApplication1.vcxproj -> D:\Программы\Параллельное программирование\Душ\MPI\ConsoleApplication1\Debug\ConsoleApplication1.exe
