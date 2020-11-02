@@ -1,9 +1,10 @@
 ﻿#include <mpi.h>
 #include <stdio.h>
-#include <fstream>
+#define n 30//размер массива
+#define save 0 //номер процесса, на котором сохраняем результат
 
 template < typename ElementTypeA, typename ElementTypeB>
-int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementTypeB* rbuf, int rcount, MPI_Datatype rtype, int root, MPI_Comm comm)
+int MPI_MyAllGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementTypeB* rbuf, int rcount, MPI_Datatype rtype, MPI_Comm comm)
 {
 	const int tag = 35;
 	int rank;
@@ -15,15 +16,15 @@ int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementType
 	MPI_Comm_rank(comm, &rank);
 	int i;
 	int j;
-	//mpiexec -n 4 MPI_Allgather.exe
+
 	for (i = 0; i < rank; i++)//отправка всем процессам
 	{
-		if (rank != root) MPI_Send(sbuf, scount, MPI_INT, i, tag, comm);
+		if (rank != save) MPI_Send(sbuf, scount, MPI_INT, i, tag, comm);
 	}
 
 	for (j = 0; j < rank; j++)//принимаем от всех процессов
 	{
-		if (rank == root) MPI_Recv(rbuf, rcount, MPI_INT, j, tag, comm, &status);
+		if (rank == save) MPI_Recv(rbuf, rcount, MPI_INT, j, tag, comm, &status);
 	}
 	MPI_Barrier(comm);
 
@@ -32,7 +33,6 @@ int MPI_MyGather(ElementTypeA* sbuf, int scount, MPI_Datatype stype, ElementType
 
 int main(int argc, char** argv)
 {
-	using namespace std;
 	int size, rank;
 	//Шапочка
 	{
@@ -49,36 +49,24 @@ int main(int argc, char** argv)
 		}
 	}
 
-	
+	printf("I'm proc #: %d\n", rank);
 	MPI_Barrier(MPI_COMM_WORLD);
-#define n 30//размер массива
-#define maxiter 100//кол-во итераций
-#define save 0 //номер процесса, на котором сохраняем результат
 
-	double sbuf[n];//создаём массив 
-	double* rbuf = new double[size * n];//создаём массив №2
-	//создание массивов для передачи и приёма
+
+	double sbuf[n];
+	double* rbuf = new double[size * n];
+
 	for (int i = 0; i < n; i++)
 		sbuf[i] = rank;
 
 	for (int i = 0; i < n * size; i++)
 		rbuf[i] = -1;//"очищаем"
-	 int i;
-	ofstream fout;
-	fout.open("file.txt");
-	for (i = 0; i < size; i++)
-	{
-		fout << rank;
-	}
-	
-	fout.close();
 
-	printf("I'm proc #: %d\n", rank);
 	double tn, tk, dt;
 
 	tn = MPI_Wtime();
 
-	MPI_MyGather(sbuf, n, MPI_DOUBLE, rbuf, n, MPI_DOUBLE, save, MPI_COMM_WORLD);
+	MPI_MyAllGather(sbuf, n, MPI_DOUBLE, rbuf, n, MPI_DOUBLE, MPI_COMM_WORLD);
 
 	tk = MPI_Wtime();
 	dt = tk - tn;
