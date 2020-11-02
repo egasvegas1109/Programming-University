@@ -1,0 +1,2 @@
+D:\Программы\Параллельное программирование\DushevayaOpenMP\Debug\DushevayaOpenMP.exe
+D:\Программы\Параллельное программирование\DushevayaOpenMP\Debug\DushevayaOpenMP.pdb

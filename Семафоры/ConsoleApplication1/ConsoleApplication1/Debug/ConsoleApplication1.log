@@ -1,0 +1,4 @@
+﻿  ConsoleApplication1.cpp
+D:\Программы\Параллельное программирование\Семафоры\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(26,9): warning C4101: j: неиспользованная локальная переменная
+D:\Программы\Параллельное программирование\Семафоры\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(26,6): warning C4101: i: неиспользованная локальная переменная
+  ConsoleApplication1.vcxproj -> D:\Программы\Параллельное программирование\Семафоры\ConsoleApplication1\Debug\ConsoleApplication1.exe
