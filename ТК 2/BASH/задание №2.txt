@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Введите число от 1 до 6"
+read n
+echo "$n"
+if [ $n = 1 ] 
+then 
+echo "1"
+elif [ $n = 2 -o $n = 3 ] 
+then
+echo "2 or 3"
+elif [ $n = 4 -o $n = 5 -o $n = 6 ]  
+then
+echo "4 or 5 or 6"
+fi

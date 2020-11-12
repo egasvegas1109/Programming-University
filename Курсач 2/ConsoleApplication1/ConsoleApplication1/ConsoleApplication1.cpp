@@ -1,20 +1,19 @@
-﻿//#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
+﻿#include <iostream>
 #include "mpi.h"
-#define COMM MPI_COMM_WORLD
-#define m 25
-#define n 20
-#define m1 5
-#define n1 6
-
+//mpiexec -n 2 ConsoleApplication1.exe
+#define k 2//поля в структуре
+#define n 4//числа в 1 массиве
+#define m 5//числа в 2 массиве
+#define l 2//кол-во структур
+#define MSMPI_NO_DEPRECATE_20
+FILE* f;
 int main(int argc, char** argv)
 {
+
+	int size, rank, msgtag = 3;
 	MPI_Status status;
 	if (MPI_Init(&argc, &argv) != MPI_SUCCESS)
-	{
 		return 1;
-	}
-	int size, rank;
 	if (MPI_Comm_size(MPI_COMM_WORLD, &size) != MPI_SUCCESS)
 	{
 		MPI_Finalize();
@@ -25,59 +24,117 @@ int main(int argc, char** argv)
 		MPI_Finalize();
 		return 3;
 	}
-
-	int i, j, msgtag = 12;
-	int buf_size = m1 * n1 * sizeof(int);
-
-	if (rank == 0)
+	double tn = MPI_Wtime(); //Узнаем текущее время(начальное)
+	struct L {
+		int a;
+		double b[n];
+	} str[l];
+	MPI_Datatype mytype; // [l] ;
+	MPI_Datatype r[k] = { MPI_INT, MPI_DOUBLE};//r-массив типов
+	int block[k] = { 1,n };
+	MPI_Aint disp[k], tt;
+	for (int i = 0; i < l; i++)
 	{
-		printf("rank=%d\n", rank);
-		int matrix[m][n];//создание массива
+		MPI_Get_address(&str[i], &disp[0]);
+		MPI_Get_address(&str[i].b, &disp[1]);
 
-		for (i = 0; i < m; i++)//заполнение массива
-			for (j = 0; j < n; j++)
-				matrix[i][j] = i + j + 1;
+		tt = disp[0];
+		for (int i = 0; i < k; i++)
+			disp[i] -= tt;
+		MPI_Type_create_struct(k, block, disp, r, &mytype);
+	}
 
-		FILE* f;//создание файла
-		char name[25];
-		sprintf(name, "Ucxodnaya matrica.txt");
-		f = fopen(name, "w");
-		for (i = 0; i < m; i++) {
-			for (j = 0; j < n; j++)
-				fprintf(f, "%d\t", matrix[i][j]);//печать исходной матрицы
+	//for (int i = 0; i < l; i++)
+	MPI_Type_commit(&mytype); // [i] );
+	double tp = 0.0, tr;
+	int position;
+	int ss = l * sizeof(str);
+	if (!rank)
+	{
+		for (int j = 0; j < l; j++)
+		{
+			str[j].a = 5 + j;
+			for (int i = 0; i < n; i++)
+			{
+				str[j].b[i] = j + i * 1.5;
+
+			}
+
+		}
+
+
+		fopen_s(&f, "array1.dat", "w");
+		for (int i = 0; i < l; i++)
+			fprintf(f, "a=%d\n", str[i].a);
+		fprintf(f, "\n");
+		for (int i = 0; i < l; i++) {
+			for (int j = 0; j < n; j++)
+				fprintf(f, "b[%d]=%f\n", i, str[i].b[j]);
 			fprintf(f, "\n");
 		}
 		fclose(f);
 
-		int position = 0;
-		int buf[m1][n1];
-		for (i = 4; i < m1 + 4; i++)
-			for (j = 4; j < n1 + 4; j++)
-				MPI_Pack(&matrix[i][j], 1, MPI_INT, &buf, buf_size, &position, COMM);
-		MPI_Send(buf, buf_size, MPI_PACKED, 1, msgtag, COMM);
+
+		//паковка
+
+		void* buf;
+		buf = malloc(ss);
+		position = 0;
+
+		tp = MPI_Wtime();
+		for (int i = 0; i < l; i++)
+		{
+
+			MPI_Pack(&str[i].a, 1, r[0], buf, ss, &position, MPI_COMM_WORLD);
+			for (int j = 0; j < n; j++)
+				MPI_Pack(&str[i].b[j], 1, r[1], buf, ss, &position, MPI_COMM_WORLD);
+
+
+		}
+
+		MPI_Send(&position, 1, MPI_INT, 1, msgtag, MPI_COMM_WORLD);
+		MPI_Send(buf, position, MPI_PACKED, 1, msgtag, MPI_COMM_WORLD);
+		MPI_Send(&tp, 1, MPI_DOUBLE, 1, msgtag, MPI_COMM_WORLD);
+		////for (int i = 0; i < l; i++)
+		MPI_Send(str, l, mytype, 1, msgtag, MPI_COMM_WORLD);
 	}
-	else
+	if (rank)
 	{
-		printf("rank=%d\n", rank);
-		int final_matrix[m1][n1];
-		int buf[m1][n1];
+		position = 0;
 		int pos = 0;
-		MPI_Recv(buf, buf_size, MPI_PACKED, 0, msgtag, COMM, &status);
-		for (i = 0; i < m1; i++)
-			for (j = 0; j < n1; j++)
-				MPI_Unpack(buf, buf_size, &pos, &final_matrix[i][j], 1, MPI_INT, COMM);
+		double tp;
+		MPI_Recv(&position, 1, MPI_INT, 0, msgtag, MPI_COMM_WORLD, &status);
+		void* mybuf = malloc(position);
+		MPI_Recv(mybuf, position, MPI_PACKED, 0, msgtag, MPI_COMM_WORLD, &status);
+		MPI_Recv(&tp, 1, MPI_DOUBLE, 0, msgtag, MPI_COMM_WORLD, &status);
 
-		FILE* f;
-		char name[25];
-		sprintf(name, "Final'na9 matrica.txt");
-		f = fopen(name, "w");
-		for (i = 0; i < m1; i++) {
-			for (j = 0; j < n1; j++)
-				fprintf(f, "%d\t", final_matrix[i][j]);
+		for (int i = 0; i < l; i++)
+		{
+
+			MPI_Unpack(mybuf, position, &pos, &str[i].a, 1, r[0], MPI_COMM_WORLD);
+			for (int j = 0; j < n; j++)
+				MPI_Unpack(mybuf, position, &pos, &str[i].b[j], 1, r[1], MPI_COMM_WORLD);
+
+
+		}
+		tr = MPI_Wtime();
+
+		////for (int i = 0; i < l; i++)
+		MPI_Recv(str, l, mytype, 0, msgtag, MPI_COMM_WORLD, &status);
+		fopen_s(&f, "array2.dat", "w");
+		fprintf(f, "timepack=%f\n", tr - tp);
+		for (int i = 0; i < l; i++)
+			fprintf(f, "a=%d\n", str[i].a);
+		fprintf(f, "\n");
+		for (int i = 0; i < l; i++) {
+			for (int j = 0; j < n; j++)
+				fprintf(f, "b[%d]=%f\n", i, str[i].b[j]);
 			fprintf(f, "\n");
 		}
 		fclose(f);
 	}
+	//for (int i = 0; i < l; i++)
+	MPI_Type_free(&mytype);
 	MPI_Finalize();
 	return 0;
 }
