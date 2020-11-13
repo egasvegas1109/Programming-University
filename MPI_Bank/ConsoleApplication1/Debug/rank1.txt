@@ -1,0 +1,42 @@
+New query| rank = 1 status = 0 sum = 68
+DAY: 0
+Send: rank = 1 status = 0 sum = 68 l = 0
+New query| rank = 1 status = 1 sum = 1
+
+
+DAY: 1
+Send: rank = 1 status = 1 sum = 1 l = 1
+New query| rank = 1 status = 0 sum = 25
+
+
+DAY: 2
+Send: rank = 1 status = 0 sum = 25 l = 2
+New query| rank = 1 status = 1 sum = 59
+
+
+DAY: 3
+Send: rank = 1 status = 1 sum = 59 l = 3
+New query| rank = 1 status = 1 sum = 65
+
+
+DAY: 4
+Send: rank = 1 status = 1 sum = 65 l = 4
+New query| rank = 1 status = 0 sum = 46
+
+
+DAY: 5
+Send: rank = 1 status = 0 sum = 46 l = 5
+New query| rank = 1 status = 0 sum = 28
+
+
+DAY: 6
+Send: rank = 1 status = 0 sum = 28 l = 6
+New query| rank = 1 status = 0 sum = 92
+
+
+DAY: 7
+Send: rank = 1 status = 0 sum = 92 l = 7
+
+
+DAY: 8
+rank = 1 EXIT

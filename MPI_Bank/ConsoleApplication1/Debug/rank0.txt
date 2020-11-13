@@ -1,0 +1,56 @@
+DAY: 0
+BALANCE  = 100 MINIMUM = 100 KMAX = 2
+Query(Get money)| proc = 2 z[0] = 1 z[1] = 136
+Query(Give money True)| proc = 1 z[1] = 68
+
+
+DAY: 1
+BALANCE  = 168 MINIMUM = 100 KMAX = 2
+Query(Get money)| proc = 1 z[0] = 1 z[1] = 1
+Query(Give money True)| proc = 2 z[1] = 2
+
+
+DAY: 2
+BALANCE  = 167 MINIMUM = 100 KMAX = 2
+Query(Give money True)| proc = 1 z[1] = 25
+Query(Get money)| proc = 2 z[0] = 1 z[1] = 50
+
+
+DAY: 3
+BALANCE  = 192 MINIMUM = 100 KMAX = 2
+Query(Get money)| proc = 1 z[0] = 1 z[1] = 59
+Query(Give money True)| proc = 2 z[1] = 118
+
+
+DAY: 4
+BALANCE  = 133 MINIMUM = 100 KMAX = 2
+Query(Get money)| proc = 1 z[0] = 1 z[1] = 65
+Query(Give money Fail)| proc = 2 z[1] = 130
+Queue (Fail)| proc = 2 WON'T GET MONEY balance = 198 sum = 130
+
+
+DAY: 5
+BALANCE  = 198 MINIMUM = 100 KMAX = 1
+Query(Give money True)| proc = 1 z[1] = 46
+Queue (Fail)| proc = 2 WON'T GET MONEY balance = 152 sum = 130
+
+
+DAY: 6
+BALANCE  = 152 MINIMUM = 100 KMAX = 1
+Query(Give money True)| proc = 1 z[1] = 28
+Queue (Fail)| proc = 2 WON'T GET MONEY balance = 124 sum = 130
+
+
+DAY: 7
+BALANCE  = 124 MINIMUM = 100 KMAX = 1
+Query(Give money Fail)| proc = 1 z[1] = 92
+Queue (Fail)| proc = 2 WON'T GET MONEY balance = 124 sum = 130
+Queue (Fail)| proc = 1 WON'T GET MONEY balance = 124 sum = 92
+
+
+DAY: 8
+BALANCE  = 124 MINIMUM = 100 KMAX = 0
+Queue (Fail)| proc = 2 WON'T GET MONEY balance = 124 sum = 130
+Queue (Fail)| proc = 1 WON'T GET MONEY balance = 124 sum = 92
+
+
