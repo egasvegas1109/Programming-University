@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
 	cudaEventSynchronize(tk);
 	cudaEventElapsedTime(&time, tn, tk);
 
-	printf("\nCuda time = %f\n", time / 1000.0);
+	printf("\nCuda time = %f\n", time );
 
 	const char* error = cudaGetErrorString(cudaGetLastError());
 	printf("Cuda error = %s\n", error);
