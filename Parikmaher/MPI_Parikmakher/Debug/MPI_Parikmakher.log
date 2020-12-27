@@ -1,9 +1,1 @@
-﻿Build started 06.03.2019 12:14:32.
-     1>Project "E:\ivtf3g46\Idrisova\MPI_Parikmakher\MPI_Parikmakher\MPI_Parikmakher.vcxproj" on node 2 (Build target(s)).
-       Project file contains ToolsVersion="15.0". This toolset is unknown or missing. You may be able to resolve this by installing the appropriate .NET Framework for this toolset. Treating the project as if it had ToolsVersion="4.0".
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(44,5): error MSB8020: The builds tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install v141 to build using the v141 build tools.
-     1>Done Building Project "E:\ivtf3g46\Idrisova\MPI_Parikmakher\MPI_Parikmakher\MPI_Parikmakher.vcxproj" (Build target(s)) -- FAILED.
-
-Build FAILED.
-
-Time Elapsed 00:00:00
+﻿  MPI_Parikmakher.vcxproj -> D:\Программы\Параллельное программирование\Parikmaher\Debug\MPI_Parikmakher.exe
