@@ -1,0 +1,15 @@
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe.config
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\bin\Debug\WpfApp1.pdb
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\MainWindow.g.cs
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\App.g.cs
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\MainWindow.baml
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.g.resources
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
+D:\Программы\Параллельное программирование\2021\Архитектура\1\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb
