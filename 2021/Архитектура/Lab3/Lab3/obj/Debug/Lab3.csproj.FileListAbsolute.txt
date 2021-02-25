@@ -1,0 +1,9 @@
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\bin\Debug\Lab3.exe.config
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\bin\Debug\Lab3.exe
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\bin\Debug\Lab3.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\obj\Debug\Lab3.csprojResolveAssemblyReference.cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\obj\Debug\Lab3.FormLab3.resources
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\obj\Debug\Lab3.Properties.Resources.resources
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\obj\Debug\Lab3.csproj.GenerateResource.Cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\obj\Debug\Lab3.exe
+E:\Documents\С лаб\Семестр 2\Технологии\Lab3\Lab3\obj\Debug\Lab3.pdb

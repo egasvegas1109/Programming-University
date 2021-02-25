@@ -1,0 +1,9 @@
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\bin\Debug\Lab5.exe.config
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\bin\Debug\Lab5.exe
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\bin\Debug\Lab5.pdb
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\obj\Debug\Lab5.csprojResolveAssemblyReference.cache
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\obj\Debug\Lab5.FormMain.resources
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\obj\Debug\Lab5.Properties.Resources.resources
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\obj\Debug\Lab5.csproj.GenerateResource.Cache
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\obj\Debug\Lab5.exe
+E:\Documents\Учеба\Семестр 2\Технологии\Lab5\Lab5\obj\Debug\Lab5.pdb

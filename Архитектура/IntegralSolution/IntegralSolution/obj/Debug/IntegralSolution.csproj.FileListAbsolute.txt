@@ -1,0 +1,36 @@
+e:\Projects\2021\IntegralSolution\IntegralSolution\bin\Debug\IntegralSolution.exe.config
+e:\Projects\2021\IntegralSolution\IntegralSolution\bin\Debug\IntegralSolution.exe
+e:\Projects\2021\IntegralSolution\IntegralSolution\bin\Debug\IntegralSolution.pdb
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csprojAssemblyReference.cache
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\MainWindow.g.cs
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\App.g.cs
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution_MarkupCompile.cache
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution_MarkupCompile.lref
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\MainWindow.baml
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.g.resources
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.Properties.Resources.resources
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csproj.GenerateResource.cache
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csproj.CoreCompileInputs.cache
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.exe
+e:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.pdb
+E:\Projects\2021\IntegralSolution\IntegralSolution\bin\Debug\CalculateLibrary.dll
+E:\Projects\2021\IntegralSolution\IntegralSolution\bin\Debug\CalculateLibrary.pdb
+E:\Projects\2021\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csproj.CopyComplete
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\bin\Debug\IntegralSolution.exe.config
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\bin\Debug\IntegralSolution.exe
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\bin\Debug\IntegralSolution.pdb
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\bin\Debug\CalculateLibrary.dll
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\bin\Debug\CalculateLibrary.pdb
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csprojAssemblyReference.cache
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\MainWindow.g.cs
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\App.g.cs
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution_MarkupCompile.cache
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution_MarkupCompile.lref
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\MainWindow.baml
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.g.resources
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.Properties.Resources.resources
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csproj.GenerateResource.cache
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csproj.CoreCompileInputs.cache
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.csproj.CopyComplete
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.exe
+D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\IntegralSolution\obj\Debug\IntegralSolution.pdb

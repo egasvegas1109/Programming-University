@@ -1,0 +1,32 @@
+﻿<Window x:Class="IntegralSolution.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IntegralSolution"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="450" MinWidth="800">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <!--<ColumnDefinition Width="20"></ColumnDefinition>-->
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <!--<ColumnDefinition Width="20"></ColumnDefinition>-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="20"></RowDefinition>-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0">Lower index</TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5"></TextBox>
+        <TextBlock Grid.Row="1" Grid.Column="0">UpperIndex </TextBlock>
+        <TextBox  Grid.Row="1" Grid.Column="1" Margin="5"></TextBox>
+        <TextBlock  Grid.Row="2" Grid.Column="0" Margin="5">N, count</TextBlock>
+        <TextBox x:Name="tbN"  Grid.Row="2" Grid.Column="1" Margin="5"></TextBox>
+        <Button x:Name="btCalculate" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin=" 0 0 5 0" Click="btCalculate_Click">Рассчитать</Button>
+    </Grid>
+</Window>

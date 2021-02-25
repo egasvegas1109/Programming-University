@@ -1,0 +1,112 @@
+//////////////////////////
+// Неделимое оповещение //
+//////////////////////////
+
+// TO-DO
+// вывод информации
+
+
+#include <stdio.h>
+#include <mpi.h>
+#include <math.h>
+
+#define n 5 // число получателей
+#define b 4 // число ячеек
+#define m 3 // число сообшений
+#define iterations 100 //число итераций
+
+typedef struct cell
+{
+  int data;
+  struct cell* next;
+} cell;
+
+
+
+int main (int argc, char ** argv){
+//шапочка
+	int size, rank;
+	if (MPI_Init (&argc, &argv) != MPI_SUCCESS) return 1;
+	if (MPI_Comm_size(MPI_COMM_WORLD, &size) != MPI_SUCCESS)
+		{MPI_Finalize();
+		return 2;
+		}
+	if (MPI_Comm_rank (MPI_COMM_WORLD, &rank) != MPI_SUCCESS)
+		{MPI_Finalize();
+		return 3;
+		}
+//конец шапочки		
+
+
+//int cells[4] = {5,5,5,5};
+
+//в main
+
+cells * msg_cells[4];
+
+msg_cells[3] = new struct cell;
+  msg_cells[3] -> data = 4; msg_cells[3] -> next = null;
+msg_cells[2] = new struct cell;
+  msg_cells[2] -> data = 4; msg_cells[2] -> next = msg_cells[3];
+msg_cells[1] = new struct cell;
+  msg_cells[1] -> data = 4; msg_cells[1] -> next = msg_cells[2];
+msg_cells[0] = new struct cell;
+  msg_cells[0] -> data = 4; msg_cells[0] -> next = msg_cells[1];
+//если закольцевать
+//d -> next = a;
+
+////////////// ИНИЦИАЛИЗАЦИЯ!!!! ////////////////////////////
+int current[5] = {0,0,0,0,0};
+
+int k;
+int sender;
+
+MPI_Status status;
+
+int i;
+/////////////////////////////////////////////////////////////
+
+//тулово
+for (i = 0; i < iters -1; i++)
+{
+	if (!rank) //процесс-производитель
+	{
+	  for (int j = 0; j < b; j++) // пробегаем по ячейкам				
+		{
+			// ПЕРЕДЕЛАТЬ ПОД ЛИНЕЙНЫЙ СПИСОК !!!! X_X
+			if (!msg_cells[j].data) // если ячейка пуста
+				{
+					msg_cells[j].data = 4; // добавляем сообщения в ячейку
+				}
+		};
+
+		for (k = 0; k < n; k++) // рассылаем сообщения
+		{ 
+			MPI_Send(current[k], 1, MPI_INT, k, MPI_ANY_TAG, MPI_COMM_WORLD);
+		};
+
+		// получаем сообщения от потребителей
+		MPI_Recv(sender, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+		msg_cells[current[sender-1]].data -= 1; // забираем 1 сообшение из ячейки
+		current[sender-1] = (current[sender-1] + 1) % n; // меняем номер текущей ячейки для потребителя
+
+	};
+	
+	else //процессы-потребители
+	
+	{
+		MPI_Recv(NULL, 1, MPI_INT, 0, MPI_ANY_TAG, MPI_COMM_WORLD, &status); //получаем сообщение от производителя
+		for (k = 0; k<10; k++)
+		{
+			sin(k); //считаем синус
+		};
+
+		MPI_Send(&rank, 1, MPI_INT, 0, MPI_ANY_TAG, MPI_COMM_WORLD); // отправляем сообщение о завершении
+		
+	}
+};
+
+//тапочки
+	MPI_Finalize();
+	return 0;
+}

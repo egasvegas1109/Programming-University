@@ -1,0 +1,4 @@
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\bin\Release\Matrix.dll
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\bin\Release\Matrix.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\obj\Release\Matrix.dll
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\obj\Release\Matrix.pdb

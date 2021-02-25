@@ -1,0 +1,17 @@
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\bin\Debug\Lab1.exe
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\bin\Debug\Lab1.pdb
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\obj\Debug\ResolveAssemblyReference.cache
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\obj\Debug\Lab1.Lab1Form.resources
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\obj\Debug\Lab1.exe
+Y:\Kabanov\Семестр 2\Tech\Lab1\Lab1\obj\Debug\Lab1.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\obj\Debug\Lab1.exe
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\obj\Debug\Lab1.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\obj\Debug\Lab1.csprojResolveAssemblyReference.cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\obj\Debug\Lab1.Lab1Form.resources
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.Cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\bin\Debug\Lab1.exe
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\bin\Debug\Lab1.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab1\Lab1\bin\Debug\Lab1.exe.config

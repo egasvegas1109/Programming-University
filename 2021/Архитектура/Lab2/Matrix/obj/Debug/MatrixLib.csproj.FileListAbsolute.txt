@@ -1,0 +1,5 @@
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\bin\Debug\Matrix.dll
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\bin\Debug\Matrix.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\obj\Debug\MatrixLib.csprojResolveAssemblyReference.cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\obj\Debug\Matrix.dll
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Matrix\obj\Debug\Matrix.pdb

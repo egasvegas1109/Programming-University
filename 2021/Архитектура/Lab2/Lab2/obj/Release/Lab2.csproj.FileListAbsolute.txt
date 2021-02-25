@@ -1,0 +1,11 @@
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\bin\Release\Lab2.exe.config
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\bin\Release\Lab2.exe
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\bin\Release\Lab2.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\bin\Release\Matrix.dll
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\bin\Release\Matrix.pdb
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\obj\Release\Lab2.csprojResolveAssemblyReference.cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\obj\Release\Lab2.Lab2.resources
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\obj\Release\Lab2.Properties.Resources.resources
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\obj\Release\Lab2.csproj.GenerateResource.Cache
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\obj\Release\Lab2.exe
+E:\Documents\С лаб\Семестр 2\Технологии\Lab2\Lab2\obj\Release\Lab2.pdb
