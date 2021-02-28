@@ -7,14 +7,14 @@
 
 using namespace std;
 
-double g(double x) //Вычисляем значение функции в точке х
+double phi(double x) //Вычисляем значение функции в точке х
 {
 	return cos(2 * x + 0.19);
 }
 
-const double f0 = 0.932; //Значение в левой краевой точке
+const double psi1 = 0.932; //Значение в левой краевой точке
 
-double f1(double t) //Значение в правой краевой точке
+double psi2(double t) //Значение в правой краевой точке
 {
 	return 0.1798 * t;
 }
@@ -28,14 +28,14 @@ int main()
 	double* u = new double[n];
 	double* un = new double[n];
 	double tn = omp_get_wtime(); //Начальное время
-	u[0] = f0; //Начальное значение в левой краевой точке
+	u[0] = psi1; //Начальное значение в левой краевой точке
 	x += h; //Шаг по координате
 	for (int i = 1; i < n - 1; i++) //Задаем начальные значения
 	{
-		u[i] = g(x);
+		u[i] = phi(x);
 		x += h;
 	}
-	u[n - 1] = f1(time); //Начальное значение в правой краевой точке
+	u[n - 1] = psi2(time); //Начальное значение в правой краевой точке
 	do {
 		printf(" \r Время расчёта %f", time); // Вывод текущего значения переменной time для отладки
 #pragma omp parallel //Открываем параллельную секцию
@@ -52,8 +52,8 @@ int main()
 			}
 		}
 		time += tau; //Шаг по времени
-		u[0] = f0;
-		u[n - 1] = f1(time);
+		u[0] = psi1;
+		u[n - 1] = psi2(time);
 	} while (time <= tmax);
 	double tk = omp_get_wtime(); //Конечное время
 	FILE* f;
