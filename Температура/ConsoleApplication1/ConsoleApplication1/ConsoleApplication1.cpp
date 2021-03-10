@@ -22,7 +22,7 @@ int main()
 {
 	setlocale(LC_ALL, "RUS");
 	//Объявление начальных значений
-	double a = 1.0, L = 300.0, x = 0.0, time = 0.0, tmax = 10.0, tau = 0.0001, h = 0.02;
+	double a = 1.0, L = 300.0, x = 0.0, time = 0.0, tmax = 1.0, tau = 0.0001, h = 0.02;
 	double r = a * tau / (h * h); //Постоянный коэффициент
 	int n = (int)(L / h) + 1;
 	double* u = new double[n];

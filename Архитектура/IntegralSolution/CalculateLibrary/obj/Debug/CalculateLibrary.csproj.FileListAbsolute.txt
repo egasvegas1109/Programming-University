@@ -3,6 +3,13 @@ e:\Projects\2021\IntegralSolution\CalculateLibrary\bin\Debug\CalculateLibrary.pd
 e:\Projects\2021\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.csproj.CoreCompileInputs.cache
 e:\Projects\2021\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.dll
 e:\Projects\2021\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.pdb
+E:\Projects\2021\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.csprojAssemblyReference.cache
+C:\Users\Artem\Desktop\IntegralSolution\CalculateLibrary\bin\Debug\CalculateLibrary.dll
+C:\Users\Artem\Desktop\IntegralSolution\CalculateLibrary\bin\Debug\CalculateLibrary.pdb
+C:\Users\Artem\Desktop\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Artem\Desktop\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.dll
+C:\Users\Artem\Desktop\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.pdb
+C:\Users\Artem\Desktop\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.csprojAssemblyReference.cache
 D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\CalculateLibrary\bin\Debug\CalculateLibrary.dll
 D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\CalculateLibrary\bin\Debug\CalculateLibrary.pdb
 D:\Программы\Параллельное программирование\Архитектура\IntegralSolution\CalculateLibrary\obj\Debug\CalculateLibrary.csprojAssemblyReference.cache
